@@ -1,4 +1,5 @@
 from django.contrib import admin
+
 from .models import Author, Genre, Book, BookInstance
 
 # admin.site.register(Book)
@@ -22,6 +23,7 @@ admin.site.register(Author, AuthorAdmin)
 class BooksInstanceInline(admin.TabularInline):
     model = BookInstance
 
+
 @admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
     list_display = ('title', 'author', 'display_genre')
@@ -39,6 +41,6 @@ class BookInstanceAdmin(admin.ModelAdmin):
             'fields': ('book', 'imprint', 'id')
         }),
         ('Availability', {
-            'fields': ('status', 'due_back')
+            'fields': ('status', 'due_back', 'borrower')
         }),
     )

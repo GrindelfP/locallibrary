@@ -18,11 +18,14 @@ from django.contrib import admin
 from django.urls import include
 from django.urls import path
 from django.views.generic import RedirectView
+from catalog.views import logout_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('catalog/', include('catalog.urls')),
     path('', RedirectView.as_view(url='/catalog/', permanent=True)),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('account/logout/', logout_view, name='logout'), # path to logout view
 ]
 
 # just for development
