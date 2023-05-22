@@ -2,3 +2,4 @@ venv
 .idea
 db.sqlite3
 /catalog/migrations/0001_initial.py
+/catalog/migrations/0002_alter_author_options_bookinstance_borrower.py
